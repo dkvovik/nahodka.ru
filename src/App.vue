@@ -1,60 +1,101 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://gitter.im/vuejs/vue" target="_blank">Gitter Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <screen1></screen1>
+    <div class="separator"></div>
   </div>
 </template>
 
 <script>
+import Screen1 from './components/Screen1.vue'
+
 export default {
   name: 'app',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+  components: {
+    Screen1
   }
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+$mainColor: rgb(255, 198, 26);
+
+html {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  line-height: 1.2;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.separator {
+  height: 20px;
+  background: linear-gradient(45deg, rgb(0, 0, 0) 25%, rgba(255, 255, 255, 0) 25%) 0 0,
+  linear-gradient(45deg, rgba(255, 255, 255, 0) 75%, rgb(0, 0, 0) 75%) 0 0,
+  linear-gradient(45deg, rgba(255, 255, 255, 0) 75%, rgb(0, 0, 0) 75%) -10px 10px,
+  linear-gradient(45deg, rgb(0, 0, 0) 25%, rgba(255, 255, 255, 0) 25%) 10px -10px;
+  background-size: 20px 20px;
+  background-color: $mainColor;
+}
+
+.title {
+  font-size: 2.292rem;
+  font-weight: 800;
+  line-height: 1.2;
+  @media (max-width: 575px) {
+    font-size: 1.592rem;
+  }
+
+  &_white {
+    color: #fff;
+  }
+  &_black {
+    color: #000;
+  }
+}
+
+.subtitle {
+  font-size: 1.083rem;
+  line-height: 1.385;
+
+  @media (max-width: 575px) {
+    font-size: 1rem;
+  }
+
+  &_white {
+    color: #fff;
+  }
+  &_black {
+    color: #000;
+  }
+}
+
+.btn {
+  background-color: $mainColor;
+  border-radius: 0;
+  border-color: rgb(0, 0, 0);
+  padding: 20px 30px;
+  color: rgb(22, 22, 22);
+  text-transform: uppercase;
+  line-height: 1.2;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @media (max-width: 575px) {
+    font-size: 0.5833rem;
+  }
 
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
+  &:hover {
+    background-color: darken($mainColor, 9);
+  }
 }
 
 a {
-  color: #42b983;
+  color: $mainColor;
+  @media (max-width: 575px) {
+    font-size: 0.6667rem;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: darken($mainColor, 9);;
+  }
 }
 </style>
