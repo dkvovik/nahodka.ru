@@ -4,7 +4,7 @@
       <div class="col-12 header-wrapper">
         <div class="overlay"></div>
         <div class="container header-content mt-2 mt-sm-5">
-          <div class="row">
+          <div class="row" v-if="!isOpenForm">
             <nav class="col-12 navbar justify-content-start align-items-baseline">
               <div class="logo mr-3 mr-sm-4"><a href="#" class="logo__link">НАХОДКА</a></div>
               <div class="location">
@@ -41,8 +41,48 @@
             <div class="col-12 promo">
               <h1 class="title title color-white">Аренда авто<br>под такси</h1>
               <p class="subtitle color-white">Хочешь работать в такси, но нет личной машины? Возьми автомобиль в аренду</p>
-              <button class="btn">УЗНАТЬ ПОДРОБНЕЕ</button>
+              <button class="btn" @click="isOpenForm = true">УЗНАТЬ ПОДРОБНЕЕ</button>
             </div>
+          </div>
+          <div class="row" v-else-if="isOpenForm && !successSubmit">
+            <button type="button" class="close" aria-label="Close" @click="isOpenForm = false">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <b-col cols="12" lg="6" offset-lg="3" class="mb-3 mb-sm-5">
+              <div class="separator separator_small"></div>
+              <h2 class="title color-white text-center">Оставить заявку</h2>
+              <p class="subtitle color-white text-center mt-3">Заполните форму и нажмите кнопку "Отправить заявку". Мы позвоним Вам в ближайшее время.</p>
+
+              <b-form @submit="onSubmit" class="form">
+                <b-form-group id="name" label-for="name">
+                  <b-form-input id="name" type="text" v-model="form.name"
+                                placeholder="Как Вас зовут">
+                  </b-form-input>
+                </b-form-group>
+                <b-form-group id="phone" label-for="phone">
+                  <b-form-input id="phone" type="tel"
+                                v-model="form.phone" required placeholder="Ваш номер телефона*">
+                  </b-form-input>
+                </b-form-group>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" v-model="checked" id="policy">
+                  <label class="form-check-label" for="policy">
+                    Нажимая кнопку "Отправить заявку" Вы соглашаетесь с условиями <a href="#">Политики конфиденциональности</a>
+                  </label>
+                </div>
+                <b-button block type="submit" class="btn_submit mt-3">Отправить заявку</b-button>
+              </b-form>
+            </b-col>
+          </div>
+          <div class="row" v-else-if="successSubmit" style="margin-top: 30%;">
+            <button type="button" class="close" aria-label="Close" @click="isOpenForm = false">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <b-col cols="12" lg="6" offset-lg="3" class="mb-3 mb-sm-5">
+              <div class="separator separator_small"></div>
+              <h2 class="title color-white text-center">Спасибо!</h2>
+              <p class="subtitle color-white text-center mt-3">Ваша заявка принята. В ближайшее время с вами свяжется наш менеджер для уточнения деталей.</p>
+            </b-col>
           </div>
         </div>
       </div>
@@ -54,14 +94,31 @@
 export default {
   data () {
     return {
+      form: {
+        name: '',
+        phone: ''
+      },
+      checked: false,
       selectedCity: 'Москва',
       options: [
         {value: 'moscow', text: 'Москва'},
         {value: 'kirov', text: 'Киров'},
         {value: 'tula', text: 'Тула'},
       ],
+      isOpenForm: false,
+      successSubmit: false
     }
   },
+  methods: {
+    onSubmit (e) {
+      e.preventDefault();
+      console.log(this.form);
+      console.log('checked', this.checked);
+      if (this.checked) {
+        this.successSubmit = true
+      }
+    },
+  }
 }
 </script>
 

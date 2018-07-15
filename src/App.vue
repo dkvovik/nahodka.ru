@@ -41,6 +41,11 @@ html {
   linear-gradient(45deg, rgb(0, 0, 0) 25%, rgba(255, 255, 255, 0) 25%) 10px -10px;
   background-size: 20px 20px;
   background-color: $mainColor;
+
+  &_small {
+    width: 50px;
+    margin: 10px auto;
+  }
 }
 
 .overlay {
@@ -54,6 +59,18 @@ html {
   max-width: 100%;
   max-height: 100%;
   background-color: rgba(0, 0, 0, .7);
+}
+
+.close {
+  position: absolute;
+  z-index: 110;
+  top: 5px;
+  right: 15px;
+  font-weight: 100;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .color {
@@ -193,4 +210,35 @@ a {
 }
 
 /* /Slider */
+
+/* Form */
+.form {
+  .btn_submit {
+    font-weight: bold;
+    text-transform: none;
+  }
+  .form-check-label {
+    color: #fff;
+    @media (max-width: 575px) {
+      font-size: .7rem;
+    }
+  }
+  input.form-control {
+    color: #999;
+    background: transparent;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    border-color: #999;
+    @media (max-width: 575px) {
+      font-size: .7rem;
+    }
+
+    &:focus {
+      box-shadow: none;
+      border-color: #fff
+    }
+  }
+}
+/* /Form */
 </style>
