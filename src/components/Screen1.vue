@@ -8,7 +8,8 @@
             <nav class="col-12 navbar justify-content-start align-items-baseline">
               <div class="logo mr-3 mr-sm-4"><a href="#" class="logo__link">НАХОДКА</a></div>
               <div class="location">
-                <svg width="22" height="22" class="mr-1 mr-sm-2 svg-geo" viewBox="0 0 190 247" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <svg width="22" height="22" class="mr-1 mr-sm-2 svg-geo" viewBox="0 0 190 247" version="1.1"
+                     xmlns="http://www.w3.org/2000/svg">
                   <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g id="Artboard">
                       <g id="SVG-Layer" transform="translate(-31.000000, -5.000000)">
@@ -28,17 +29,17 @@
                   </g>
                 </svg>
                 <b-btn id="changeCity" class="changeCity">{{ selectedCity }}</b-btn>
-                <b-popover target="changeCity" triggers="click blur" class="b-popover" placement="bottom">
+                <b-popover target="changeCity" triggers="click blur"
+                           class="b-popover" placement="bottom">
                   <a :href="option.value" v-for="option in options"
-                  v-if="option.text !== selectedCity">{{ option.text }}<br></a>
+                     v-if="option.text !== selectedCity">{{ option.text }}<br></a>
                 </b-popover>
               </div>
             </nav>
             <div class="w-100"></div>
             <div class="col-12 promo">
               <h1 class="title title color-white">Аренда авто<br>под такси</h1>
-              <p class="subtitle color-white">Хочешь работать в такси, но нет личной машины? Возьми автомобиль в
-                аренду</p>
+              <p class="subtitle color-white">Хочешь работать в такси, но нет личной машины? Возьми автомобиль в аренду</p>
               <button class="btn">УЗНАТЬ ПОДРОБНЕЕ</button>
             </div>
           </div>
@@ -54,9 +55,9 @@ export default {
     return {
       selectedCity: 'Москва',
       options: [
-        { value: 'moscow', text: 'Москва' },
-        { value: 'kirov', text: 'Киров' },
-        { value: 'tula', text: 'Тула' },
+        {value: 'moscow', text: 'Москва'},
+        {value: 'kirov', text: 'Киров'},
+        {value: 'tula', text: 'Тула'},
       ],
     }
   },
@@ -133,6 +134,24 @@ export default {
   .promo {
     margin-top: 80px;
     max-width: 550px;
+  }
+}
+</style>
+
+<style lang="scss">
+.popover-cars {
+  .popover-body {
+    position: relative;
+    padding: 45px;
+    background-color: #ffc61a;
+  }
+  .arrow::after {
+    border-top-color: #ffc61a;
+  }
+  .close {
+    position: absolute;
+    top: 0;
+    right: 10px;
   }
 }
 </style>
