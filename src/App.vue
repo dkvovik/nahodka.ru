@@ -3,18 +3,21 @@
     <screen1></screen1>
     <div class="separator"></div>
     <screen2></screen2>
+    <screen3></screen3>
   </div>
 </template>
 
 <script>
 import Screen1 from './components/Screen1.vue'
 import Screen2 from './components/Screen2.vue'
+import Screen3 from './components/Screen3.vue'
 
 export default {
   name: 'app',
   components: {
     Screen1,
-    Screen2
+    Screen2,
+    Screen3
   }
 }
 </script>
@@ -40,12 +43,29 @@ html {
   background-color: $mainColor;
 }
 
-.color-white {
-  color: #fff;
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  display: inline-block;
+  max-width: 100%;
+  max-height: 100%;
+  background-color: rgba(0, 0, 0, .7);
 }
 
-.color-grey {
-  color: #333;
+.color {
+  &-white {
+    color: #fff;
+  }
+  &-grey {
+    color: #333;
+  }
+  &-main {
+    color: $mainColor;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -102,68 +122,6 @@ a {
   &:hover {
     text-decoration: none;
     color: darken($mainColor, 9);;
-  }
-}
-
-.agile {
-  position: relative;
-  &, * {
-    &:focus,
-    &:active {
-      outline: none;
-    }
-  }
-  &__list {
-    display: block;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-  }
-  &__track {
-    align-items: center;
-    display: flex;
-    justify-content: flex-start;
-    .agile--disabled & {
-      display: block;
-    }
-  }
-  &__slide {
-    display: block;
-    .agile--fade & {
-      opacity: 0;
-      position: relative;
-      z-index: 0;
-      &--active {
-        opacity: 1;
-        z-index: 2;
-      }
-      &--expiring {
-        opacity: 1;
-        transition-duration: 0s;
-        z-index: 1;
-      }
-    }
-  }
-  &__arrow {
-    &[disabled] {
-      cursor: default;
-    }
-  }
-  &__dots {
-    align-items: center;
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    white-space: nowrap;
-  }
-  &__dot {
-    button {
-      cursor: pointer;
-      display: block;
-      font-size: 0;
-      line-height: 0;
-    }
   }
 }
 

@@ -8,7 +8,8 @@
             <nav class="col-12 navbar justify-content-start align-items-baseline">
               <div class="logo mr-3 mr-sm-4"><a href="#" class="logo__link">НАХОДКА</a></div>
               <div class="location">
-                <svg width="22" height="22" class="mr-1 mr-sm-2 svg-geo" viewBox="0 0 190 247" version="1.1"
+                <svg width="22" height="22" class="mr-1 mr-sm-2 svg-geo"
+                     viewBox="0 0 190 247" version="1.1"
                      xmlns="http://www.w3.org/2000/svg">
                   <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g id="Artboard">
@@ -78,19 +79,6 @@ export default {
   }
   @media (max-width: 575px) {
     background-position-x: -300px;
-  }
-
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    display: inline-block;
-    max-width: 100%;
-    max-height: 100%;
-    background-color: rgba(0, 0, 0, .7);
   }
 }
 

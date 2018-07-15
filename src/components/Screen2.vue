@@ -143,7 +143,7 @@ export default {
 .provide-wrapper {
   padding-top: 125px;
   padding-bottom: 125px;
-  background: url(../assets/images/bg-provide.png?8d7a1dd…) bottom repeat-x;
+  background: url(../assets/images/bg-provide.png) bottom repeat-x;
   background-size: 100% 70%;
   @media (max-width: 768px) {
     background-size: cover;
