@@ -2,16 +2,19 @@
   <div id="app">
     <screen1></screen1>
     <div class="separator"></div>
+    <screen2></screen2>
   </div>
 </template>
 
 <script>
 import Screen1 from './components/Screen1.vue'
+import Screen2 from './components/Screen2.vue'
 
 export default {
   name: 'app',
   components: {
-    Screen1
+    Screen1,
+    Screen2
   }
 }
 </script>
@@ -37,35 +40,37 @@ html {
   background-color: $mainColor;
 }
 
-.title {
-  font-size: 2.292rem;
-  font-weight: 800;
+.color-white {
+  color: #fff;
+}
+.color-grey {
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
+  font-weight: 800;
+}
+
+h1.title {
+  font-size: 2.292rem;
   @media (max-width: 575px) {
     font-size: 1.592rem;
   }
+}
 
-  &_white {
-    color: #fff;
-  }
-  &_black {
-    color: #000;
+h2.title {
+  font-size: 1.833rem;
+  @media (max-width: 575px) {
+    font-size: 1.42rem;
   }
 }
 
 .subtitle {
   font-size: 1.083rem;
   line-height: 1.385;
-
   @media (max-width: 575px) {
     font-size: 1rem;
-  }
-
-  &_white {
-    color: #fff;
-  }
-  &_black {
-    color: #000;
   }
 }
 

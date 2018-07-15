@@ -28,7 +28,7 @@
                   </g>
                 </svg>
                 <b-btn id="changeCity" class="changeCity">{{ selectedCity }}</b-btn>
-                <b-popover target="changeCity" triggers="click" class="b-popover" placement="bottom">
+                <b-popover target="changeCity" triggers="click blur" class="b-popover" placement="bottom">
                   <a :href="option.value" v-for="option in options"
                   v-if="option.text !== selectedCity">{{ option.text }}<br></a>
                 </b-popover>
@@ -36,8 +36,8 @@
             </nav>
             <div class="w-100"></div>
             <div class="col-12 promo">
-              <h1 class="title title_white">Аренда авто<br>под такси</h1>
-              <p class="subtitle subtitle_white">Хочешь работать в такси, но нет личной машины? Возьми автомобиль в
+              <h1 class="title title color-white">Аренда авто<br>под такси</h1>
+              <p class="subtitle color-white">Хочешь работать в такси, но нет личной машины? Возьми автомобиль в
                 аренду</p>
               <button class="btn">УЗНАТЬ ПОДРОБНЕЕ</button>
             </div>
