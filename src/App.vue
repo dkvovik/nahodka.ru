@@ -43,6 +43,7 @@ html {
 .color-white {
   color: #fff;
 }
+
 .color-grey {
   color: #333;
 }
@@ -103,4 +104,135 @@ a {
     color: darken($mainColor, 9);;
   }
 }
+
+.agile {
+  position: relative;
+  &, * {
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
+  &__list {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+  &__track {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    .agile--disabled & {
+      display: block;
+    }
+  }
+  &__slide {
+    display: block;
+    .agile--fade & {
+      opacity: 0;
+      position: relative;
+      z-index: 0;
+      &--active {
+        opacity: 1;
+        z-index: 2;
+      }
+      &--expiring {
+        opacity: 1;
+        transition-duration: 0s;
+        z-index: 1;
+      }
+    }
+  }
+  &__arrow {
+    &[disabled] {
+      cursor: default;
+    }
+  }
+  &__dots {
+    align-items: center;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+  }
+  &__dot {
+    button {
+      cursor: pointer;
+      display: block;
+      font-size: 0;
+      line-height: 0;
+    }
+  }
+}
+
+/* Slider */
+.vueperslides {
+  .vueperslides__parallax-wrapper::before,
+  .vueperslides__parallax-wrapper::after {
+    box-shadow: none;
+  }
+  .vueperslides__slide {
+    padding-left: 80px;
+    padding-right: 80px;
+    @media (max-width: 575px) {
+      padding: 40px 45px 0 60px;
+    }
+    @media (max-width: 420px) {
+      padding: 20px 45px 0 50px;
+    }
+  }
+  .vueperslides__arrow {
+    font-size: 2.5em;
+    &:focus {
+      outline: none;
+    }
+    @media (max-width: 575px) {
+      font-size: 1.5em;
+    }
+    svg {
+      fill: #fff;
+    }
+  }
+}
+
+.slider-item {
+  display: flex;
+
+  .slider-info {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    @media (max-width: 575px) {
+      font-size: .7rem;
+    }
+    @media (max-width: 420px) {
+      font-size: .5rem;
+    }
+
+    .slider-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      @media (max-width: 575px) {
+        font-size: .9rem;
+      }
+      @media (max-width: 420px) {
+        font-size: .61rem;
+      }
+    }
+  }
+
+  .slider-img img {
+    border-radius: 50%;
+    @media (max-width: 575px) {
+      width: 90px;
+    }
+    @media (max-width: 420px) {
+      width: 60px;
+    }
+  }
+}
+
+/* /Slider */
 </style>

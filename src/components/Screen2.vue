@@ -9,7 +9,7 @@
 
           <div class="w-100 mb-4"></div>
 
-          <b-col cols="12" sm="6" md="3" class="provide text-center mb-3 mb-md-0" id="cars">
+          <b-col cols="12" sm="6" lg="3" class="provide provide-cars text-center mb-3 mb-lg-0" id="cars">
             <img class="provide-icon mb-3" src="../assets/images/car.png"
                  srcset="../assets/images/car@2x.png 2x, ../assets/images/car@3x.png 3x">
             <p class="provide-text text-center color-grey">Автопарк из разных марок машин не старше 2-х лет</p>
@@ -18,26 +18,19 @@
               <button type="button" class="close" aria-label="Close" @click="onHidePopover">
                 <span aria-hidden="true">&times;</span>
               </button>
-              <b-carousel id="carousel1"
-                          style="text-shadow: 1px 1px 2px #333;"
-                          controls
-                          background="transparent"
-                          :interval="4000"
-                          img-width="1024"
-                          img-height="480"
-                          v-model="slide"
-                          @sliding-start="onSlideStart"
-                          @sliding-end="onSlideEnd"
-              >
-                <b-carousel-slide>
-                  <h2>test2</h2>
-                </b-carousel-slide>
-              </b-carousel>
+
+              <vueper-slides autoplay :bullets="false">
+                <vueper-slide v-for="(slide, i) in slides" :key="i"
+                              :content="slide.content"
+                >
+                </vueper-slide>
+              </vueper-slides>
+
             </b-popover>
           </b-col>
 
 
-          <b-col cols="12" sm="6" md="3" class="provide text-center mb-3 mb-md-0" id="connect">
+          <b-col cols="12" sm="6" lg="3" class="provide text-center mb-3 mb-lg-0" id="connect">
             <img class="provide-icon mb-3" src="../assets/images/taxi.png"
                  srcset="../assets/images/taxi@2x.png 2x, ../assets/images/taxi@3x.png 3x">
             <p class="provide-text text-center color-grey">Подключение к Я.Такси и Uber</p>
@@ -50,7 +43,7 @@
             </b-popover>
           </b-col>
 
-          <b-col cols="12" sm="6" md="3" class="provide text-center mb-3 mb-sm-0" id="maintenance">
+          <b-col cols="12" sm="6" lg="3" class="provide text-center mb-3 mb-lg-0" id="maintenance">
             <img class="provide-icon mb-3" src="../assets/images/tech.png"
                  srcset="../assets/images/tech@2x.png 2x, ../assets/images/tech@3x.png 3x">
             <p class="provide-text color-grey">Техническое обслуживание</p>
@@ -63,7 +56,7 @@
             </b-popover>
           </b-col>
 
-          <b-col cols="12" sm="6" md="3" class="provide text-center" id="contract">
+          <b-col cols="12" sm="6" lg="3" class="provide text-center" id="contract">
             <img class="provide-icon mb-3" src="../assets/images/doc.png"
                  srcset="../assets/images/doc@2x.png 2x, ../assets/images/doc@3x.png 3x">
             <p class="provide-text text-center color-grey">Договор</p>
@@ -82,10 +75,60 @@
 </template>
 
 <script>
+import {VueperSlides, VueperSlide} from 'vueperslides'
+
 export default {
+  components: {VueperSlides, VueperSlide},
   data () {
     return {
-      show: false
+      slides: [
+        {
+          content: `
+            <div class="slider-item">
+              <div class="slider-img">
+                <img src="/dist/slide1.jpg" alt="">
+              </div>
+              <div class="slider-info pl-3 align-content-center">
+                <div class="slider-title">Kia Rio</div>
+                <div class="slider-text">
+                    <p class="mb-0"><strong>Год выпуска:</strong> 2015</p>
+                    <p class="mb-0"><strong>Пробег:</strong> 30 000 км</p>
+                </div>
+              </div>
+            </div>`
+        },
+        {
+          content: `
+            <div class="slider-item">
+              <div class="slider-img">
+                <img src="/dist/slide2.jpg" alt="">
+              </div>
+              <div class="slider-info pl-3 align-content-center">
+                <div class="slider-title">Volkswagen Polo</div>
+                <div class="slider-text">
+                    <p class="mb-0"><strong>Год выпуска:</strong> 2015</p>
+                    <p class="mb-0"><strong>Пробег:</strong> 30 000 км</p>
+                </div>
+              </div>
+            </div>`
+        },
+        {
+          content: `
+            <div class="slider-item">
+              <div class="slider-img">
+                <img src="/dist/slide3.jpg" alt="">
+              </div>
+              <div class="slider-info pl-3 align-content-center">
+                <div class="slider-title">Hyundai Solaris</div>
+                <div class="slider-text">
+                    <p class="mb-0"><strong>Год выпуска:</strong> 2015</p>
+                    <p class="mb-0"><strong>Пробег:</strong> 30 000 км</p>
+                </div>
+              </div>
+            </div>`
+        }
+      ],
+      show: false,
     }
   },
   methods: {
@@ -150,6 +193,22 @@ export default {
 
     @media (max-width: 767px) {
       font-size: 0.6667rem;
+    }
+  }
+}
+
+.provide-cars /deep/ {
+  .popover{
+    width: 565px;
+    max-width: 95vw;
+
+    .popover-body {
+      position: relative;
+      padding: 60px 0 45px 0;
+      background-color: #ffc61a;
+      @media (max-width: 575px) {
+        padding: 20px 0 15px 0;
+      }
     }
   }
 }
