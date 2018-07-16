@@ -256,6 +256,14 @@ a {
 
     .form-check-label {
       padding-left: 45px;
+
+      a {
+        color: #fff;
+        font-weight: 600;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
 
     &.p-curve .state label:before,
