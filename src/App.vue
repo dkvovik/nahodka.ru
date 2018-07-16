@@ -23,6 +23,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '~pretty-checkbox/src/pretty-checkbox.scss';
+
 $mainColor: rgb(255, 198, 26);
 
 html {
@@ -237,6 +239,48 @@ a {
     &:focus {
       box-shadow: none;
       border-color: #fff
+    }
+  }
+
+  .pretty {
+    white-space: normal;
+    margin-right: 0;
+
+    input {
+      width: 45px;
+    }
+
+    .state label {
+      text-indent: 0;
+    }
+
+    .form-check-label {
+      padding-left: 45px;
+    }
+
+    &.p-curve .state label:before,
+    &.p-curve .state label:after {
+      border-radius: 0;
+    }
+
+    & input:checked ~ .state.p-success label:after,
+    &.p-toggle .state.p-success label:after {
+      background-color: transparent !important;
+    }
+  }
+
+  .pretty,
+  .state label:before,
+  .pretty .state label:after,
+  .pretty.p-svg .state .svg{
+    left: 0;
+    top: 3px;
+  }
+
+  @media (max-width: 575px) {
+    .pretty.p-svg .state .svg{
+      left: -1px;
+      top: -1px;
     }
   }
 }

@@ -40,7 +40,8 @@
             <div class="w-100"></div>
             <div class="col-12 promo">
               <h1 class="title title color-white">Аренда авто<br>под такси</h1>
-              <p class="subtitle color-white">Хочешь работать в такси, но нет личной машины? Возьми автомобиль в аренду</p>
+              <p class="subtitle color-white">Хочешь работать в такси, но нет личной машины? Возьми автомобиль в
+                аренду</p>
               <button class="btn" @click="isOpenForm = true">УЗНАТЬ ПОДРОБНЕЕ</button>
             </div>
           </div>
@@ -48,11 +49,11 @@
             <button type="button" class="close" aria-label="Close" @click="isOpenForm = false">
               <span aria-hidden="true">&times;</span>
             </button>
-            <b-col cols="12" lg="6" offset-lg="3" class="mb-3 mb-sm-5">
+            <b-col cols="12" lg="6" offset-lg="3" class="mb-3 mb-sm-0">
               <div class="separator separator_small"></div>
               <h2 class="title color-white text-center">Оставить заявку</h2>
-              <p class="subtitle color-white text-center mt-3">Заполните форму и нажмите кнопку "Отправить заявку". Мы позвоним Вам в ближайшее время.</p>
-
+              <p class="subtitle color-white text-center mt-3">Заполните форму и нажмите кнопку "Отправить заявку". Мы
+                позвоним Вам в ближайшее время.</p>
               <b-form @submit="onSubmit" class="form">
                 <b-form-group id="name" label-for="name">
                   <b-form-input id="name" type="text" v-model="form.name"
@@ -64,24 +65,31 @@
                                 v-model="form.phone" required placeholder="Ваш номер телефона*">
                   </b-form-input>
                 </b-form-group>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" v-model="checked" id="policy">
-                  <label class="form-check-label" for="policy">
-                    Нажимая кнопку "Отправить заявку" Вы соглашаетесь с условиями <a href="#">Политики конфиденциональности</a>
-                  </label>
+                <div class="pretty p-svg p-curve">
+                  <input type="checkbox" v-model="checked" id="policy" />
+                  <div class="state p-success">
+                    <svg class="svg svg-icon" viewBox="0 0 20 20">
+                      <path
+                          d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z"
+                          style="stroke: white;fill:white;"></path>
+                    </svg>
+                    <label for="policy" class="form-check-label">Нажимая кнопку "Отправить заявку" Вы соглашаетесь с условиями <a href="#">Политики конфиденциональности</a>
+                    </label>
+                  </div>
                 </div>
                 <b-button block type="submit" class="btn_submit mt-3">Отправить заявку</b-button>
               </b-form>
             </b-col>
           </div>
-          <div class="row" v-else-if="successSubmit" style="margin-top: 30%;">
+          <div class="row success-submit-wrapper" v-else-if="successSubmit" >
             <button type="button" class="close" aria-label="Close" @click="isOpenForm = false">
               <span aria-hidden="true">&times;</span>
             </button>
             <b-col cols="12" lg="6" offset-lg="3" class="mb-3 mb-sm-5">
               <div class="separator separator_small"></div>
               <h2 class="title color-white text-center">Спасибо!</h2>
-              <p class="subtitle color-white text-center mt-3">Ваша заявка принята. В ближайшее время с вами свяжется наш менеджер для уточнения деталей.</p>
+              <p class="subtitle color-white text-center mt-3">Ваша заявка принята. В ближайшее время с вами свяжется
+                наш менеджер для уточнения деталей.</p>
             </b-col>
           </div>
         </div>
@@ -111,9 +119,9 @@ export default {
   },
   methods: {
     onSubmit (e) {
-      e.preventDefault();
-      console.log(this.form);
-      console.log('checked', this.checked);
+      e.preventDefault()
+      console.log(this.form)
+      console.log('checked', this.checked)
       if (this.checked) {
         this.successSubmit = true
       }
@@ -128,15 +136,6 @@ export default {
   min-height: calc(100vh - 20px);
   background: url('../assets/images/bg-header.jpg');
   background-size: cover;
-  @media (max-width: 1199px) {
-    background-position-x: -300px;
-  }
-  @media (max-width: 991px) {
-    background-position-x: -400px;
-  }
-  @media (max-width: 575px) {
-    background-position-x: -300px;
-  }
 }
 
 .changeCity {
@@ -179,6 +178,13 @@ export default {
   .promo {
     margin-top: 80px;
     max-width: 550px;
+  }
+}
+
+.success-submit-wrapper {
+  margin-top: 15%;
+  @media (max-width: 991px) {
+    margin-top: 30%;
   }
 }
 </style>
